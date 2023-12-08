@@ -43,5 +43,5 @@ class FileStorage:
                     class_n = ob["__class__"]
                     del ob["__class__"]
                     self.new(eval(class_n)(**ob))
-        except:
+        except FileNotFoundError:
             return
