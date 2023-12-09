@@ -35,14 +35,11 @@ class BaseModel:
         """ returns a dictionary containing all keys/values
         of __dict__ of the instance"""
 
-        new_dict = dict()
-        for k, v in self.__dict__.items():
-            if k in ["created_at", "updated_at"]:
-                new_dict[k] = v.isoformat()
-            else:
-                new_dict[k] = v
+        new_dict = self.__dict__.copy()
+        new_dict["created_at"] = self.create_at.isoformat()
+        new_dict["updated_at"] = self.updated_at.isoformat()
         new_dict['__class__'] = self.__class__.__name__
-        return (new_dict)
+        return new_dict
 
     def __str__(self):
         """Modifies the behavior of dunder method str"""
