@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """This module contains the base class"""
-import uuid
+from uuid import uuid4
 from datetime import datetime
 import models
 
@@ -13,7 +13,7 @@ class BaseModel:
         Args:
             args: a tuple containing 0 or more arguments
             kwargs: a dictionary containing 0 or more k/v pairs"""
-        self.id = str(uuid.uuid4())
+        self.id = str(uuid4())
         self.created_at = datetime.today()
         self.updated_at = datetime.today()
         if not kwargs:
