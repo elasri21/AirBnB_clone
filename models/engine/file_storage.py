@@ -12,7 +12,10 @@ from models.review import Review
 
 class FileStorage:
     """serializes instances to a JSON file and deserializes
-    JSON file to instances"""
+    JSON file to instances
+    Attributes:
+        __file_path: the file path
+        __objects: all objects"""
 
     __file_path = "file.json"
     __objects = {}
@@ -20,7 +23,7 @@ class FileStorage:
     def all(self):
         """returns the dictionary"""
 
-        return (FileStorage.__objects)
+        return FileStorage.__objects
 
     def new(self, obj):
         """add new object to list of objects

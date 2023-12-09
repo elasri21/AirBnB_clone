@@ -16,15 +16,14 @@ class BaseModel:
         self.id = str(uuid4())
         self.created_at = datetime.today()
         self.updated_at = datetime.today()
-        if not kwargs:
-            models.storage.new(self)
-        else:
+        if len(kwargs) != 0:
             for k, v in kwargs.items():
-                if k != '__class__':
-                    if k in ['created_at', 'updated_at']:
-                        setattr(self, k, datetime.today())
-                    else:
-                        setattr(self, k, v)
+                if k in ['created_at', 'updated_at']:
+                    self.__dict__[k] = datetime.today()
+                else:
+                    self.__dict__[k] = v
+        else:
+            models.storage.new(self)
 
     def save(self):
         """updates the public instance attribute updated_at"""
