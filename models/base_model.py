@@ -14,22 +14,22 @@ class BaseModel:
             args: a tuple containing 0 or more arguments
             kwargs: a dictionary containing 0 or more k/v pairs"""
         self.id = str(uuid.uuid4())
-        self.created_at = datetime.now()
-        self.updated_at = datetime.now()
+        self.created_at = datetime.today()
+        self.updated_at = datetime.today()
         if not kwargs:
             models.storage.new(self)
         else:
             for k, v in kwargs.items():
                 if k != '__class__':
                     if k in ['created_at', 'updated_at']:
-                        setattr(self, k, datetime.now())
+                        setattr(self, k, datetime.today())
                     else:
                         setattr(self, k, v)
 
     def save(self):
         """updates the public instance attribute updated_at"""
 
-        self.updated_at = datetime.now()
+        self.updated_at = datetime.today()
         models.storage.save()
 
     def to_dict(self):
