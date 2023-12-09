@@ -13,13 +13,14 @@ class BaseModel:
         Args:
             args: a tuple containing 0 or more arguments
             kwargs: a dictionary containing 0 or more k/v pairs"""
+        form_at = "%Y-%m-%dT%H:%M:%S.%f"
         self.id = str(uuid4())
         self.created_at = datetime.today()
         self.updated_at = datetime.today()
         if len(kwargs) != 0:
             for k, v in kwargs.items():
-                if k in ['created_at', 'updated_at']:
-                    self.__dict__[k] = datetime.today()
+                if k == 'created_at' or k == 'updated_at':
+                    self.__dict__[k] = datetime.strptime(v, form_at)
                 else:
                     self.__dict__[k] = v
         else:
