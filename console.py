@@ -53,12 +53,12 @@ class HBNBCommand(cmd.Cmd):
         """This will execute some default behavior when invalid input passed
         Args: arg: arguments"""
         dic_args = {
-                "all": self.do_all,
-                "show": self.do_show,
-                "destroy": self.do_destroy,
-                "count": self.do_count,
-                "update": self.do_update
-                }
+            "all": self.do_all,
+            "show": self.do_show,
+            "destroy": self.do_destroy,
+            "count": self.do_count,
+            "update": self.do_update
+        }
         patt = re.search(r"\.", arg)
         if patt is not None:
             l_arg = [arg[:patt.span()[0]], arg[patt.span()[1]:]]
@@ -66,7 +66,7 @@ class HBNBCommand(cmd.Cmd):
             if patt is not None:
                 comd = [l_arg[1][:patt.span()[0]], patt.group()[1:-1]]
                 if comd[0] in dic_args.keys():
-                    call = "{}.{}".format(l_arg[0], comd[1])
+                    call = "{} {}".format(l_arg[0], comd[1])
                     return dic_args[comd[0]](call)
             print("*** Unknown syntax: {}".format(arg))
             return False
