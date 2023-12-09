@@ -7,6 +7,7 @@ import models
 
 class BaseModel:
     """defines all common attributes/methods for other classes"""
+
     def __init__(self, *args, **kwargs):
         """Initializes an instance from the BaseModel
         Args:
@@ -27,12 +28,14 @@ class BaseModel:
 
     def save(self):
         """updates the public instance attribute updated_at"""
+
         self.updated_at = datetime.now()
         models.storage.save()
 
     def to_dict(self):
         """ returns a dictionary containing all keys/values
         of __dict__ of the instance"""
+
         new_dict = dict()
         for k, v in self.__dict__.items():
             if k in ["created_at", "updated_at"]:
@@ -44,5 +47,6 @@ class BaseModel:
 
     def __str__(self):
         """Modifies the behavior of dunder method str"""
+
         c_name = self.__class__.__name__
         return "[{}] ({}) {}".format(c_name, self.id, self.__dict__)
