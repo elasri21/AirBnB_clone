@@ -21,12 +21,12 @@ def parsing(arg):
             return [it.strip(",") for it in split(arg)]
         else:
             lxr = split(arg[:squares.span()[0]])
-            rlt = [j.strip(",") for j in split(arg)]
+            rlt = [j.strip(",") for j in lxr]
             rlt.append(squares.group())
             return rlt
     else:
         lxr = split(arg[:braces.span()[0]])
-        rlt = [j.strip(",") for j in split(arg)]
+        rlt = [j.strip(",") for j in lxr]
         rlt.append(braces.group())
         return rlt
 
@@ -45,15 +45,6 @@ class HBNBCommand(cmd.Cmd):
             "Review"
     }
 
-    def do_quit(self, arg):
-        """Quit command to exit the program"""
-        return True
-
-    def do_EOF(self, arg):
-        """EOF command to exit the program"""
-        print('')
-        return True
-
     def emptyline(self):
         """Do Nothing"""
         pass
@@ -68,7 +59,7 @@ class HBNBCommand(cmd.Cmd):
                 "count": self.do_count,
                 "update": self.do_update
                 }
-        patt = re.search(r'\.', arg)
+        patt = re.search(r"\.", arg)
         if patt is not None:
             l_arg = [arg[:patt.span()[0]], arg[patt.span()[1]:]]
             patt = re.search(r"\((.*?)\)", l_arg[1])
@@ -79,6 +70,15 @@ class HBNBCommand(cmd.Cmd):
                     return dic_args[comd[0]](call)
             print("*** Unknown syntax: {}".format(arg))
             return False
+
+    def do_quit(self, arg):
+        """Quit command to exit the program"""
+        return True
+
+    def do_EOF(self, arg):
+        """EOF command to exit the program"""
+        print('')
+        return True
 
     def do_create(self, arg):
         """Creates a new instance
