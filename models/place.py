@@ -6,7 +6,18 @@ from models.base_model import BaseModel
 class Place(BaseModel):
     """class Place to create place instances
     Args:
-        BaseModel: Mother class"""
+        BaseModel: Mother class
+    Attributes:
+        city_id: the city id
+        user_id: the user id
+        name: the lpace name
+        description: place description
+        number_rooms: the number of the rooms
+        max_guest: the maximum number of guests
+        price_by_night: the price of the room
+        latitude: positive coords
+        longitude: negative coords
+        amenity_ids: the amenity ids"""
     city_id = ""
     user_id = ""
     name = ""
