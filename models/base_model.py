@@ -12,10 +12,10 @@ class BaseModel:
         Args:
             args: a tuple containing 0 or more arguments
             kwargs: a dictionary containing 0 or more k/v pairs"""
+        self.id = str(uuid.uuid4())
+        self.created_at = datetime.now()
+        self.updated_at = datetime.now()
         if not kwargs:
-            self.id = str(uuid.uuid4())
-            self.created_at = datetime.now()
-            self.updated_at = datetime.now()
             models.storage.new(self)
         else:
             for k, v in kwargs.items():
