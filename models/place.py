@@ -18,6 +18,7 @@ class Place(BaseModel):
         latitude: positive coords
         longitude: negative coords
         amenity_ids: the amenity ids"""
+
     city_id = ""
     user_id = ""
     name = ""

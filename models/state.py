@@ -9,4 +9,5 @@ class State(BaseModel):
         BaseModel: Mother class
     Attributes:
         name: the state name"""
+
     name = ""

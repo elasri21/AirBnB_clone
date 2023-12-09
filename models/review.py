@@ -11,6 +11,7 @@ class Review(BaseModel):
         place_id: the place if
         user_id: the user id
         text: the review a user typed"""
+
     place_id = ""
     user_id = ""
     text = ""

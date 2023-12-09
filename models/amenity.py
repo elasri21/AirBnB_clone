@@ -8,4 +8,5 @@ class Amenity(BaseModel):
     Args:
         BaseModel: mother class
     Attributes: name (str): amenity name"""
+
     name = ""
