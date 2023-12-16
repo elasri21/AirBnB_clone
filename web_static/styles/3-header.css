@@ -4,7 +4,9 @@ header {
     width: 100%;
     border-bottom: 1px solid #CCCCCC;
 }
-header img {
+header div {
+    width: 142px;
+    height: 60px;
+    background-image: url("https://s3.amazonaws.com/intranet-projects-files/holbertonschool-higher-level_programming+/268/logo.png");
     margin-left: 20px;
-    vertical-align: middle;
 }
