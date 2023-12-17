@@ -74,8 +74,23 @@
     gap: 10px;
     margin-top: 20px;
 }
-.places article .amenities ul img {
-    vertical-align: middle;
+.places article .amenities ul li {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.places article .amenities ul div {
+    width: 50px;
+    height: 50px;
+}
+.places article .amenities ul div:first-of-type {
+    background-image: url("https://s3.amazonaws.com/intranet-projects-files/holbertonschool-higher-level_programming+/268/icon_pets.png");
+}
+.places article .amenities ul div:nth-of-type(2) {
+    background-image: url("https://s3.amazonaws.com/intranet-projects-files/holbertonschool-higher-level_programming+/268/icon_tv.png");
+}
+.places article .amenities ul div:last-of-type {
+    background-image: url("https://s3.amazonaws.com/intranet-projects-files/holbertonschool-higher-level_programming+/268/icon_wifi.png");
 }
 .places article .reviews {
     margin-top: 40px;
