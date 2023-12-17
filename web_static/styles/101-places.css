@@ -50,6 +50,23 @@
 }
 .places article .information > div {
     width: 100px;
+    height: 50px;
+    text-align: center;
+}
+.places article .information > div div {
+    width: 100%;
+    height: 100%;
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+.places article .information > div.max_guest div {
+    background-image: url("https://s3.amazonaws.com/intranet-projects-files/holbertonschool-higher-level_programming+/268/icon_group.png");
+}
+.places article .information > div.number_rooms div {
+    background-image: url("https://s3.amazonaws.com/intranet-projects-files/holbertonschool-higher-level_programming+/268/icon_bed.png");
+}
+.places article .information > div.number_bathrooms div {
+    background-image: url("https://s3.amazonaws.com/intranet-projects-files/holbertonschool-higher-level_programming+/268/icon_bath.png");
 }
 .places article .user {
     text-align: left;
